@@ -1,0 +1,110 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.desc {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+article {
+    border: 1px solid black;
+}
+
+
+/*
+#menu-principal {
+    background-color: rgb(194, 192, 255);
+    color: blue;
+    border: 2px solid rgb(37, 169, 240);
+    margin: 20px;
+    padding: 20px;
+}
+*/
+
+#menu-principal {
+    margin: 20px;
+}
+
+ul,li {
+    border: 1px solid black;
+    padding: 0, 0;
+    margin: 2px, 2px;
+    display: inline-block;
+}
+
+
+/*
+article {
+    background-color: tomato;
+    color: white;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    width: 30%;
+    height: 200px;
+}
+
+*/
+
+article {
+    border: 1px solid black;
+    
+    margin: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 30%;
+    height: 400px;
+}
+
+
+/*Estils per al formulari*/
+.contacte {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+}
+
+input, textarea {
+    width: 30%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #0762DA;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+footer {
+    padding: 10px;
+    background-color: #0762DA;
+    color: white;
+    text-align: center;
+}
