@@ -1,109 +1,85 @@
-* {
-    padding: 0px;
-    margin: 0px;
+/* Estils actualitzats per a una millor presentació */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
-h1 {
-    border: 1px solid black;
-    margin: 5px;
-}
-
-.desc {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-
-/*
-#menu-principal {
-    background-color: rgb(194, 192, 255);
-    color: blue;
-    border: 2px solid rgb(37, 169, 240);
-    margin: 20px;
-    padding: 20px;
-}
-*/
-
-#menu-principal {
-    margin: 20px;
-}
-
-ul,li {
-    border: 1px solid black;
-    padding: 0, 0;
-    margin: 2px, 2px;
-    display: inline-block;
-}
-
-/*
-article {
-    background-color: tomato;
-    color: white;
-    border: 2px solid black;
-    margin: 5px;
-    padding: 5px;
-    display: inline-block;
-    width: 30%;
-    height: 200px;
-}
-
-*/
-
-article {
-    border: 1px solid black;
-    margin: 5px;
-    padding: 10px;
-    display: inline-block;
-    width: 30%;
-    height: 400px;
-}
-
-
-img {
-    width: 100%;
-    height: auto;
-}
-
-/*Estils per al formulari*/
-.contacte {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-form {
-    text-align: center;
-    margin-top: 10px;
-}
-
-label {
-    display: block;
-}
-
-input, textarea {
-    width: 30%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-button {
+header {
     background-color: #0762DA;
     color: white;
-    padding: 10px 15px;
+    padding: 20px;
+    text-align: center;
+}
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+nav a:hover {
+    background-color: #ddd;
+}
+section {
+    padding: 20px;
+}
+article {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+article h2 {
+    margin-top: 0;
+}
+
+h2, p {
+    display: inline-block; /* Permite que el texto y la imagen estén en la misma línea */
+    vertical-align: top; /* Alinea el texto en la parte superior */
+}
+
+img {
+    display: inline-block; /* Hace que la imagen esté en línea con el texto */
+    max-width: 25%; /* Mantiene el tamaño de la imagen */
+    height: auto;
+    margin-right: 20px; /* Espacio entre el texto y la imagen */
+}
+
+
+.contact-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+.contact-form input, .contact-form textarea, .contact-form select {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.contact-form button {
+    background-color: #0762DA;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
-}
-
-
+/* Estils per al peu de pàgina */
 footer {
-    padding: 10px;
+    
     background-color: #0762DA;
-    color: white;
+    color: #fff;
     text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
 }
