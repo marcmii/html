@@ -3,65 +3,85 @@
 <head>
   <title>CONCESSIONARI AMÈRICA ONLINE</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css"> <!--ENLLAÇEM EL FITXER DELS ESTILS-->
 </head>
 <body>
+<!--CAPÇALERA-->
   <header>
-      <h1>CONCESSIONARI AMÈRICA ONLINE</h1>
+      <h1 id="inici">CONCESSIONARI AMÈRICA ONLINE</h1>
       <p>En aquest concessionari trobaràs cotxes americans amb kilòmetre 0, és a dir, sortits de fàbrica. No dubtis en explorar la nostra pàgina web per no perdre't cap article!</p>
   </header>
+
+<!--BARRA DE NAVEGACIÓ-->
   <nav>
-      <a href="#">INICI</a>
-      <a href="#">VEHICLES</a>
-      <a href="#">CONTACTE</a>
+      <a href="#inici">INICI</a>
+      <a href="#vehicles">VEHICLES</a>
+      <a href="#contatce">CONTACTE</a>
   </nav>
 
+  <!--CATÀLEG DE COTXES-->
   <section>
-      <h2>VEHICLES</h2>
+      <h2 id="vehicles">VEHICLES</h2>
+      <br>
       <article>
           <h2>Ford Mustang Shelby GT500</h2>
+          <br>
           <p>El Ford Mustang és un cotxe esportiu de gran potència, conegut per la seva acceleració impressionant i un rendiment excel·lent.</p>
+          <br>
           <p>Preu: 70.000 - 100.000 EUR</p>
+          <br>
           <img src="multimedia/fotos_vehicles/mustang.jpg" alt="Ford Mustang Shelby GT500">
           <a href="vehicles.html">Ampliar informació</a>
       </article>
 
       <article>
         <h2>Chevrolet Camaro ZL1</h2>
+        <br>
         <p>El Chevrolet Camaro combina un disseny agresiu amb un motor potent, ofereix una experiència de conducio dinàmica i emocionant.</p>
+        <br>
         <p>Preu: 65.000 - 80.000 EUR</p>
+        <br>
         <img src="multimedia/fotos_vehicles/zl1.jpg" alt="">
         <a href="vehicles.html">Ampliar informació</a>
     </article>
 
     <article>
         <h2>Chevrolet Corvette z06</h2>
+        <br>
         <p>El Chevrolet Corvette és un icònic cotxe esportiu que destaca per el seu excel·lent motor i gran rendiment, perfecte per a aquells que busquen velocitat.</p>
+        <br>
         <p>Preu: 90.000 - 120.000 EUR</p>
+        <br>
         <img src="multimedia/fotos_vehicles/z06.jpg" alt="">
         <a href="vehicles.html">Ampliar informació</a>
     </article>
 
     <article>
         <h2>Dodge Challenger SRT</h2>
+        <br>
         <p>El Dodge Challenger és un muscle car que combina la potènica amb el confort, el motor proporciona una acceleració impresionant i un disseny retro que atrau mirades.</p>
+        <br>
         <p>Preu: 60.000 - 80.000 EUR</p>
+        <br>
         <img src="multimedia/fotos_vehicles/SRT.jpg" alt="">
         <a href="vehicles.html">Ampliar informació</a>
     </article>
 
     <article>
         <h2>Cadillac CTS-V</h2>
+        <br>
         <p>El Cadillac és un sedan de luxe amb un rendiment exepcional, està equipat amb un motor que ofereix una combinacio de confort amb tecnologia avançada i velocitat.</p>
+        <br>
         <p>Preu: 85.000 - 100.000 EUR</p>
+        <br>
         <img src="multimedia/fotos_vehicles/cadillac.jpg" alt="">
         <a href="vehicles.html">Ampliar informació</a>
     </article>
-      
-
   </section>
+
+  <!--FORMULARI DE CONTACTE-->
   <section class="contact-form">
-      <h2>CONTACTE</h2>
+      <h2 id="contatce">CONTACTE</h2>
       <form action="processar_formulari.php" method="post">
           <input type="text" placeholder="Nom" name="nom" required>
           <input type="text" placeholder="Cognom" name="cognom" required>
@@ -75,6 +95,8 @@
           <button type="submit">Enviar</button>
       </form>
   </section>
+
+  <!--PEU DE PÀGINA-->
   <footer>
       &copy; 2025 Concessionari Amèrica Online
   </footer>

@@ -1,0 +1,16 @@
+/*Estils per el cos (body) de la pàgina */
+body {
+    background-color: #ddd;
+    color: black
+}
+
+/*Estils dels links dels exercisis*/
+a {
+    color: #333;
+    text-decoration: none; /*Treu el subrallat del text*/
+    padding: 10px 20px;
+}
+
+a:hover {
+    background-color: #cfc7c7;
+}

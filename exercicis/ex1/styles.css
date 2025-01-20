@@ -1,39 +1,49 @@
-/* Estils actualitzats per a una millor presentació */
+/* Estils actualitzats del body*/
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /*Canviem la font de lletra*/
     margin: 0;
     padding: 0;
 }
+
+/*Estils capçalera*/
 header {
     background-color: #0762DA;
     color: white;
     padding: 20px;
-    text-align: center;
+    text-align: center; /*Posa la capçalera al mig de la pantalla*/
 }
 h1 {
     margin: 0;
     font-size: 36px;
 }
+
+/*Estils barra navegació*/
 nav {
     background-color: #f2f2f2;
     padding: 10px;
-    text-align: center;
+    text-align: center; /*Posa el menú al mig de la pantalla*/
 }
 nav a {
     color: #333;
-    text-decoration: none;
+    text-decoration: none; /*Treu el subrallat del text*/
     padding: 10px 20px;
 }
-nav a:hover {
+nav a:hover { /*Al passar el cursor canvia de color*/
     background-color: #ddd;
 }
+
+/*Estils per el catàleg de cotxes*/
 section {
     padding: 20px;
 }
 article {
     border: 1px solid #ccc;
     padding: 20px;
+    width: 425px;
+    height: 500px;
     margin-bottom: 20px;
+    display: inline-block; /*Posa les caixes de costat*/
+    vertical-align: top; /*Alinea les caixes desde adalt*/
 }
 
 article h2 {
@@ -41,15 +51,22 @@ article h2 {
 }
 
 h2, p {
-    display: inline-block; /* Permite que el texto y la imagen estén en la misma línea */
-    vertical-align: top; /* Alinea el texto en la parte superior */
+    display: inline-block; 
+    vertical-align: top; 
 }
 
+/*Estils Imatges*/
 img {
-    display: inline-block; /* Hace que la imagen esté en línea con el texto */
-    max-width: 25%; /* Mantiene el tamaño de la imagen */
+    display: inline-block;
+    /*max-width: 25%; */
+    width: 400px;
     height: auto;
-    margin-right: 20px; /* Espacio entre el texto y la imagen */
+    margin-right: 20px; 
+}
+
+/*Estils per el formulari*/
+label {
+    display: block;
 }
 
 
@@ -57,6 +74,7 @@ img {
     background-color: #f2f2f2;
     padding: 20px;
     text-align: center;
+    margin-bottom: 20px;
 }
 .contact-form input, .contact-form textarea, .contact-form select {
     width: 300px;
@@ -68,12 +86,14 @@ img {
     color: white;
     padding: 10px 20px;
     border: none;
-    cursor: pointer;
+    cursor: pointer; /*Al passar el cursor aquest mateix canvia*/
 }
 
 /* Estils per al peu de pàgina */
+
+
+
 footer {
-    
     background-color: #0762DA;
     color: #fff;
     text-align: center;
