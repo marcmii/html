@@ -1,9 +1,21 @@
 header {
     border: 1px solid black;
+    padding: 70px;
+    text-align: center; /*CENTRE EL TEXT AL MIG*/
 }
 
 #coldplay {
-    border: 1px solid black;
+    border: 1px dashed;
     padding: 10px;
     cursor: pointer;
+    align-content: center; /*CENTRE EL TEXT AL MIG (VERTICALMENT)*/
+}
+
+/*FLEX AL CONTENIDOR PARE*/
+.contenidor {
+    display: flex;
+}
+
+div {
+    border: 1px solid black;
 }
