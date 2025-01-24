@@ -1,7 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     border: 1px solid black;
+    color: white;
     padding: 70px;
     text-align: center; /*CENTRE EL TEXT AL MIG*/
+    background-image: url(/exercicis/ex2/multimedia/capçalera/Coldplay.jpg);
+    background-size: contain;
+    background-position: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /*SOMBREJAT AL TEXTE*/
+    margin-bottom: 10px;
 }
 
 #coldplay {
