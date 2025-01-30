@@ -12,28 +12,34 @@ header {
     background-image: url(/exercicis/ex2/multimedia/capçalera/Coldplay.jpg);
     background-size: contain;
     background-position: center;
+
     /*ESTILS PEL TEXTE*/
     font-size: 25px; /*MIDA DEL TEXT*/
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /*SOMBREJAT AL TEXTE*/
-   
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /*SOMBREJAT AL TEXTE*/ 
 }
 
+/*ESTILS PER L'ESPAI DE LA PAGINA OFICIAL*/
 .coldplay {
     border: 1px dashed;
-    background-color: lightblue;
+    background-color: rgb(150, 172, 189);
     padding: 10px;
-    cursor: pointer;
     text-align: center;
+}
+/*ESTILS PER QUANT EL CURSOR ESTA SOBRE*/
+.coldplay:hover{
+    background-color: lightblue;
+    cursor: pointer;
 }
 
 /*FLEX AL CONTENIDOR PARE*/
 .flex-container {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
 }
 
 div {
     border: 1px solid black;
+    padding: 25px;
 }
 
 /*ESTILS PELS VIDEOS*/
