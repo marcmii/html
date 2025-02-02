@@ -13,7 +13,7 @@ header {
     text-align: center; /*Posa la capçalera al mig de la pantalla*/
     background-image: url(/exercicis/ex1/multimedia/cons.jpg);
     background-position: center;
-    
+
      /*ESTILS PEL TEXTE*/
     font-size: 25px; /*MIDA DEL TEXT*/
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /*SOMBREJAT AL TEXTE*/ 
@@ -50,7 +50,7 @@ nav a:hover { /*Al passar el cursor canvia de color*/
 
 /*Estils per el catàleg de cotxes*/
 section {
-    border: 1px solid black;
+    
     padding: 20px;
     text-align: center;
 }
