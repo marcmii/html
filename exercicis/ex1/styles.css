@@ -9,9 +9,25 @@ body {
 header {
     background-color: #0762DA;
     color: white;
-    padding: 20px;
+    padding: 140px;
     text-align: center; /*Posa la capçalera al mig de la pantalla*/
+    background-image: url(/exercicis/ex1/multimedia/cons.jpg);
+    background-position: center;
+    
+     /*ESTILS PEL TEXTE*/
+    font-size: 25px; /*MIDA DEL TEXT*/
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /*SOMBREJAT AL TEXTE*/ 
 }
+
+.desc {
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
 h1 {
     margin: 0;
     font-size: 36px;
@@ -34,7 +50,9 @@ nav a:hover { /*Al passar el cursor canvia de color*/
 
 /*Estils per el catàleg de cotxes*/
 section {
+    border: 1px solid black;
     padding: 20px;
+    text-align: center;
 }
 article {
     border: 1px solid #ccc;
