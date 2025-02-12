@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    text-align: center;
+    background-color: rgb(174, 218, 86);
+}
+
+header {
+    background-image: url(/ex3/multimedia/pintura9.jpg);
+    background-position: center;
+    background-size: cover; /*AJUSTA LA IMATGE PER CUBRIR TOT EL HEADER*/
+    padding: 170px;
+    color: white;
+    font-size: 25px; /*MIDA DEL TEXT*/
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /*SOMBREJAT AL TEXTE*/ 
+}
+
+p {
+    margin-top: 0;
+    padding: 20px;
+    background-color: yellowgreen;
+    
+}
+
+img {
+    width: 100%;
+    object-fit: conver;
+    transition: transform 0.5s ease;
+}
+
+.gallery--container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.gallery--container img {
+    height: 100%;
+}
+
+.gallery--container img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño de la imagen al 120% */
+}
