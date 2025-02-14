@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-image: url(/ex3/multimedia/pintura9.jpg);
+    background-image: url(multimedia/pintura9.jpg);
     background-position: center;
     background-size: cover; /*AJUSTA LA IMATGE PER CUBRIR TOT EL HEADER*/
     padding: 170px;
