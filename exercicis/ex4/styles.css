@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+}
+
+header {
+    background-image: url(multimedia/header.png);
+    background-position: center;
+    text-align: center;
+    padding: 220px;
+    border: 1px solid black;
+}
+
+header h1 {
+    color: white;
+    font-size: 40px; /*MIDA DEL TEXT*/
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /*SOMBREJAT AL TEXTE*/ 
+}
+
+.intro {
+    padding: 75px 90px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+
+    border: 1px solid black;
+}
+
+.grid-template {
+    display: grid;
+    grid-template-areas: 'imatge1 text1'
+                        'text2 imatge2'
+                        'foto foto'
+                        'video video'
+                        'mapa mapa';
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.caja {
+    border: 1px solid black;
+    margin-bottom: 90px;
+}
+
+.c1, .c2, .c3, .c4 {
+    
+}
+
+.c1 {
+    grid-area: imatge1;
+
+    
+}
+
+.c2 {
+    grid-area: text1;
+    padding: 20px 80px 20px 80px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.c3 {
+    grid-area: imatge2;
+}
+
+.c4 {
+    grid-area: text2;
+    padding: 100px 80px 20px 80px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.c5 {
+    grid-area: foto;
+}
+
+.c6 {
+    grid-area: video;
+}
+
+.c7 {
+    grid-area: mapa;
+}
+
+
+img {
+    width: 90%;
+    
+}
