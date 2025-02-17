@@ -1,5 +1,4 @@
-
-* {
+ * {
     margin: 0;
     padding: 0;
 }
@@ -9,7 +8,7 @@ header {
     color: white;
     padding: 120px;
     text-align: center; /*CENTRE EL TEXT AL MIG*/
-    background-image: url(/exercicis/ex2/multimedia/capçalera/Coldplay.jpg);
+    background-image: url(multimedia/capçalera/Coldplay.jpg);
     background-size: contain;
     background-position: center;
 
@@ -46,4 +45,4 @@ div {
 video {
     width: 300px;
     height: auto;
-}
+}/*
