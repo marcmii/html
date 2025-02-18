@@ -11,7 +11,7 @@ header {
     background-image: url(multimedia/header.png);
     background-position: center;
     text-align: center;
-    padding: 220px;
+    padding: 30vh;
     border: 1px solid black;
 }
 
@@ -30,6 +30,8 @@ header h1 {
     border: 1px solid black;
 }
 
+
+
 .grid-template {
     display: grid;
     grid-template-areas: 'imatge1 text1'
@@ -43,7 +45,7 @@ header h1 {
 }
 
 .caja {
-    border: 1px solid black;
+    
     margin-bottom: 90px;
 }
 
@@ -59,7 +61,7 @@ header h1 {
 
 .c2 {
     grid-area: text1;
-    padding: 20px 80px 20px 80px;
+    padding: 70px 80px 20px 80px;
     font-size: 18px;
     line-height: 1.6;
 }
@@ -70,7 +72,7 @@ header h1 {
 
 .c4 {
     grid-area: text2;
-    padding: 100px 80px 20px 80px;
+    padding: 70px 80px 20px 80px;
     font-size: 18px;
     line-height: 1.6;
 }
