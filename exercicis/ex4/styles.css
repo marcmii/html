@@ -11,7 +11,7 @@ header {
     background-image: url(multimedia/header.png);
     background-position: center;
     text-align: center;
-    padding: 30vh;
+    padding: 32vh;
     border: 1px solid black;
 }
 
@@ -31,7 +31,6 @@ header h1 {
 }
 
 
-
 .grid-template {
     display: grid;
     grid-template-areas: 'imatge1 text1'
@@ -45,7 +44,7 @@ header h1 {
 }
 
 .caja {
-    
+    border: 1px solid black;
     margin-bottom: 90px;
 }
 
@@ -83,6 +82,7 @@ header h1 {
 
 .c6 {
     grid-area: video;
+
 }
 
 .c7 {
