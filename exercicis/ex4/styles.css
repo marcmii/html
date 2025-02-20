@@ -3,10 +3,6 @@
     padding: 0;
 }
 
-body {
-
-}
-
 header {
     background-image: url(multimedia/header.png);
     background-position: center;
@@ -26,14 +22,16 @@ header h1 {
     text-align: center;
     font-size: 18px;
     line-height: 1.6;
-
-    border: 1px solid black;
+    background-color: lightgray;
 }
 
+h2 {
+    padding-bottom: 20px;
+}
 
 .grid-template {
     display: grid;
-    grid-template-areas: 'imatge1 text1'
+    grid-template-areas: 'imatge1  text1'
                         'text2 imatge2'
                         'foto foto'
                         'video video'
@@ -44,18 +42,12 @@ header h1 {
 }
 
 .caja {
-    border: 1px solid black;
-    margin-bottom: 90px;
-}
-
-.c1, .c2, .c3, .c4 {
     
+    margin-bottom: 90px;
 }
 
 .c1 {
     grid-area: imatge1;
-
-    
 }
 
 .c2 {
@@ -82,15 +74,110 @@ header h1 {
 
 .c6 {
     grid-area: video;
-
+    margin-bottom: 25px;
 }
 
 .c7 {
     grid-area: mapa;
+    margin-bottom: 15px;
 }
 
+iframe {
+    width: 98%;
+}
 
 img {
     width: 90%;
-    
+}
+
+footer {
+    background-color: rgb(181, 180, 180);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    color: black;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+
+@media (min-width: 601px) and (max-width: 1422px) {
+    header {
+        padding: 30vh; /* Padding ajustado para tablets */
+    }
+
+    header h1 {
+        font-size: 32px; /* Tamaño de fuente ajustado */
+    }
+
+    .intro {
+        padding: 40px; /* Padding ajustado para la introducción */
+        font-size: 17px; /* Tamaño de fuente ajustado */
+    }
+
+    .grid-template {
+        grid-template-areas: 
+            'imatge1 imatge1'
+            'text1 text1'
+            'imatge2 imatge2'
+            'text2 text2'
+            'foto foto'
+            'video video'
+            'mapa mapa';
+        grid-template-columns: 50% 50%; /* Dos columnas */
+    }
+
+    .caja {
+        margin-bottom: 40px; /* Margen ajustado */
+    }
+
+    img {
+        width: 80%; /* Imágenes ocupan el 95% del ancho */
+    }
+
+    iframe {
+        width: 98%; /* Iframes ocupan el 95% del ancho */
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    header {
+        padding: 20vh; /* Menor padding en móviles */
+    }
+
+    header h1 {
+        font-size: 24px; /* Tamaño de fuente más pequeño */
+    }
+
+    .intro {
+        padding: 20px; /* Menor padding en la introducción */
+        font-size: 16px; /* Tamaño de fuente más pequeño */
+    }
+
+    .grid-template {
+        grid-template-areas: 
+            'imatge1'
+            'text1'
+            'imatge2'
+            'text2'
+            'foto'
+            'video'
+            'mapa';
+        grid-template-columns: 100%; /* Una sola columna */
+    }
+
+    .caja {
+        margin-bottom: 20px; /* Menor margen entre cajas */
+    }
+
+    img {
+        width: 100%; /* Imágenes ocupan el 100% del ancho */
+    }
+
+    iframe {
+        width: 98%; /* Iframes ocupan el 100% del ancho */
+    }
 }
