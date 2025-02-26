@@ -38,7 +38,7 @@ h2 {
                         'mapa mapa';
     grid-template-columns: 50% 50%;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 70px;
 }
 
 .caja {
@@ -132,6 +132,10 @@ footer {
         margin-bottom: 40px; /* Margen ajustado */
     }
 
+    .c2, .c4 {
+        padding-top: 15px;
+    }
+
     img {
         width: 80%; /* Imágenes ocupan el 95% del ancho */
     }
@@ -171,6 +175,10 @@ footer {
 
     .caja {
         margin-bottom: 20px; /* Menor margen entre cajas */
+    }
+
+    .c2, .c4 {
+        padding-top: 15px;
     }
 
     img {
