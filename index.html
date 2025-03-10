@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--metadades-->    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marc Miquel</title>
-    <link rel="stylesheet" href="stylesIndex.css">
+    <meta autor="Homer Simpson" />
+    <meta name="description" content="Portafolis Homer Simpson" />
+    <meta name="keywords" content="HTML, CSS, Bootstrap, JavaScript, DAM, web, software" />
+    <title>Portafolis Marc Miquel</title>
+
+    <!--favicon-->
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+
+
+    <!--Bootstrap CSS i icones-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+
 </head>
 <body>
-    <h1>Pàgina Exercisis</h1>
-    <p>Aquesta pàgina serverix d'acces directe per anar a cada exercici</p>
-    <a href="exercicis/ex1/ex1.html">Exercici 1 (MY STORE)</a>
-    <a href="exercicis/ex2/ex2.html">Exercici 2 (MUSIC BOX)</a>
-    <a href="exercicis/ex3/ex3.html">Exercici 3 (GRANS PINTORS)</a>
-    <a href="exercicis/ex4/ex4.html">Exercici 4 (IMATGES I VIDEOS 360º)</a>
-</body> 
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">
+              <img src="images/icon.png" alt="icona" width="50"/>
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+    <!-- carrega el javascript de Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ </body>
 </html>
