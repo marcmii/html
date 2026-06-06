@@ -1,51 +1,336 @@
-<html>
+<!DOCTYPE html>
+<html lang="ca">
 
 <head>
   <meta charset="utf-8" />
-  <title>Portafolis 3D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolis 3D - Marc Miquel</title>
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101418;
+      --panel: rgba(18, 24, 31, 0.94);
+      --line: rgba(255, 255, 255, 0.16);
+      --text: #f7fbff;
+      --muted: #b9c7d4;
+      --gold: #f6c64a;
+      --blue: #5ed3f3;
+      --green: #60d394;
+      --red: #ff6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+    }
+
+    .hud {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 5;
+      max-width: min(420px, calc(100vw - 36px));
+      padding: 16px 18px;
+      background: rgba(10, 14, 19, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+    }
+
+    .hud h1 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .hud p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%, -50%);
+      width: min(620px, calc(100vw - 34px));
+      max-height: min(74vh, 680px);
+      overflow: auto;
+      z-index: 10;
+      padding: 26px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 26px 90px rgba(0, 0, 0, 0.56);
+    }
+
+    .modal.active {
+      display: block;
+      animation: showModal 0.22s ease-out;
+    }
+
+    @keyframes showModal {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .modal h2 {
+      margin: 0 34px 14px 0;
+      color: var(--gold);
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .modal p,
+    .modal li {
+      color: #dfe8ef;
+      line-height: 1.65;
+    }
+
+    .modal ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .modal a {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      background: rgba(255, 255, 255, 0.17);
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .links a {
+      display: block;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      border-color: rgba(94, 211, 243, 0.7);
+      background: rgba(94, 211, 243, 0.12);
+    }
+  </style>
+  <script>
+    function showWindow(id) {
+      const box = document.getElementById(id);
+      if (box) box.classList.add("active");
+    }
+
+    function hideWindow(id) {
+      const box = document.getElementById(id);
+      if (box) box.classList.remove("active");
+    }
+
+    AFRAME.registerComponent("open-window", {
+      schema: { type: "string" },
+      init: function () {
+        this.el.addEventListener("click", () => showWindow(this.data));
+      }
+    });
+
+    AFRAME.registerComponent("external-link", {
+      schema: { href: { type: "string" } },
+      init: function () {
+        this.el.addEventListener("click", () => window.open(this.data.href, "_blank"));
+      }
+    });
+
+    AFRAME.registerComponent("toggle-projects", {
+      init: function () {
+        const ids = ["#projecte1", "#projecte2", "#projecte3", "#projecte4"];
+        let visible = false;
+        this.el.addEventListener("click", () => {
+          visible = !visible;
+          ids.forEach((id) => {
+            const item = document.querySelector(id);
+            if (item) item.setAttribute("visible", visible);
+          });
+        });
+      }
+    });
+
+    AFRAME.registerComponent("hover-label", {
+      schema: { target: { type: "selector" } },
+      init: function () {
+        this.el.addEventListener("mouseenter", () => this.data.target.setAttribute("visible", true));
+        this.el.addEventListener("mouseleave", () => this.data.target.setAttribute("visible", false));
+      }
+    });
+
+    AFRAME.registerComponent("limit-look", {
+      schema: {
+        minYaw: { type: "number", default: -105 },
+        maxYaw: { type: "number", default: 105 },
+        minPitch: { type: "number", default: -35 },
+        maxPitch: { type: "number", default: 35 }
+      },
+      tick: function () {
+        const rotation = this.el.getAttribute("rotation");
+        rotation.y = Math.min(this.data.maxYaw, Math.max(this.data.minYaw, rotation.y));
+        rotation.x = Math.min(this.data.maxPitch, Math.max(this.data.minPitch, rotation.x));
+        this.el.setAttribute("rotation", rotation);
+      }
+    });
+  </script>
 </head>
 
 <body>
-  <a-scene>
+  <div class="hud">
+    <h1>Marc Miquel</h1>
+    <p>Portafolis 3D. Mira al teu voltant i clica els objectes destacats per obrir informacio, projectes i enllacos.</p>
+  </div>
+
+  <section id="box-info" class="modal" aria-label="Sobre mi">
+    <button class="close" onclick="hideWindow('box-info')" aria-label="Tancar">x</button>
+    <h2>Sobre mi</h2>
+    <p>
+      Hola soc el Marc, aquest es el meu protafolis 3D, aqui trobaras algunes de les tasques que he fet a DAM.
+    </p>
+  </section>
+
+  <section id="box-projects" class="modal" aria-label="Projectes">
+    <button class="close" onclick="hideWindow('box-projects')" aria-label="Tancar">x</button>
+    <h2>Projectes</h2>
+    <p>
+      Alguns dels projectes i practiques que tinc al portafolis principal.
+    </p>
+    <div class="links">
+      <a href="https://mmiquel.netlify.app/exercicis/ex1/ex1" target="_blank">My Store</a>
+      <a href="https://mmiquel.netlify.app/exercicis/ex2/ex2" target="_blank">Music Box</a>
+      <a href="https://mmiquel.netlify.app/exercicis/ex3/ex3" target="_blank">Grans Pintors</a>
+      <a href="https://mmiquel.netlify.app/exercicis/ex4/ex4" target="_blank">Imatges i Video 360</a>
+      <a href="../Gim-Jump/index.html" target="_blank">GIM-JUMP</a>
+      <a href="../rickYMorty/index.html" target="_blank">API Rick i Morty</a>
+      <a href="index.html" target="_blank">Video cotxe Unity</a>
+      <a href="index.html" target="_blank">Portafolis en 3D</a>
+      <a href="https://drive.google.com/drive/folders/1LtkWOQCDY6QayiW5LetTvWvnUzHqgQPs?usp=sharing" target="_blank">Projecte Firebase</a>
+    </div>
+  </section>
+
+  <a-scene cursor="rayOrigin: mouse" renderer="antialias: true; colorManagement: true" vr-mode-ui="enabled: false">
     <a-assets>
-        <a-asset-item id="cotxe" src="assets/cotxe.glb"> </a-asset-item>
+      <img id="fonsPlatja" src="assets/ingwe_beach_sunny.jpg" />
+      <a-asset-item id="cotxe" src="assets/cotxe.glb"></a-asset-item>
+      <a-asset-item id="porsche" src="assets/porsche.glb"></a-asset-item>
     </a-assets>
-    <!-- Càmera + controls -->
-    <a-entity position="0 1.6 4">
-      <a-camera wasd-controls look-controls></a-camera>
+
+    <a-entity camera look-controls="pointerLockEnabled: false" wasd-controls="false" limit-look position="0 1.6 3.2">
+      <a-entity cursor="fuse: true; fuseTimeout: 1200" position="0 0 -1"
+        geometry="primitive: ring; radiusInner: 0.014; radiusOuter: 0.024"
+        material="color: #f6c64a; shader: flat"
+        animation="property: scale; to: 1.24 1.24 1.24; dur: 820; dir: alternate; loop: true"></a-entity>
     </a-entity>
 
-    <!-- Cel i terra -->
-    <a-sky color="#222844"></a-sky>
-    <a-plane rotation="-90 0 0" width="30" height="30" color="#444"></a-plane>
+    <a-sky src="#fonsPlatja" rotation="0 -88 0"></a-sky>
+    <a-plane rotation="-90 0 0" width="22" height="22" color="#27313a"></a-plane>
+    <a-circle rotation="-90 0 0" radius="5.8" position="0 0.012 -2.2" color="#35434c"></a-circle>
 
-    <!-- Títol -->
-    <a-text value="Portafolis Marc Miquel" color="#FFD700" position="0 3 -2" align="center" width="6">
-    </a-text>
-    <a-entity gltf-model="#cotxe" scale="100 100 100" position="-2 0 -3" rotation="0 180 0">
-    </a-entity>
-    <!-- 🔹 Projecte 1: el Porsche -->
-    <a-entity position="-2 0 -3" rotation="0 45 0">
+    <a-light type="ambient" color="#dce9f4" intensity="0.72"></a-light>
+    <a-light type="directional" color="#ffffff" intensity="0.86" position="-3 6 4"></a-light>
+    <a-light type="point" color="#5ed3f3" intensity="0.85" distance="10" position="3 2.8 -1.5"></a-light>
 
+    <a-text value="Portafolis 3D" position="0 3.55 -3.9" align="center" color="#f6c64a" width="7"></a-text>
+    <a-text value="Cotxe petit: sobre mi | Cotxe gran: projectes" position="0 3.15 -3.9" align="center" color="#18212a" width="5.4"></a-text>
 
-      <a-text value="Porsche 911 Turbo S (1992)" position="0 1.5 0" align="center" color="#FFD700" width="4">
-      </a-text>
-    </a-entity>
+    <a-cylinder radius="1.05" height="0.32" position="-4.35 0.16 -2.85" color="#56616b"></a-cylinder>
+    <a-entity gltf-model="#porsche" position="-4.35 0.36 -2.85" rotation="0 52 0" scale="31 31 31"
+      open-window="box-info" hover-label="target: #label-info"
+      animation__enter="startEvents: mouseenter; property: scale; to: 34 34 34; dur: 180"
+      animation__leave="startEvents: mouseleave; property: scale; to: 31 31 31; dur: 380"></a-entity>
+    <a-text id="label-info" value="Sobre mi" visible="false" position="-4.35 1.8 -2.5" rotation="0 25 0"
+      align="center" color="#60d394" width="4"></a-text>
 
-    <!-- Panell projecte 2 -->
-    <a-box position="2 1 -3" depth="0.1" height="2" width="3" color="#03A9F4">
-      <a-text value="Projecte 2" align="center" position="0 1 0.06" width="3"></a-text>
+    <a-box id="ordinador" position="-0.65 1.05 -5.25" width="1.25" height="0.78" depth="0.08" color="#18212a"
+      toggle-projects hover-label="target: #label-projectes"
+      animation__enter="startEvents: mouseenter; property: scale; to: 1.06 1.06 1.06; dur: 180"
+      animation__leave="startEvents: mouseleave; property: scale; to: 1 1 1; dur: 320">
+      <a-plane position="0 0 0.045" width="1.08" height="0.62" color="#5ed3f3"></a-plane>
+      <a-text value="PROJECTES" align="center" position="0 0 0.052" color="#101418" width="3.2"></a-text>
     </a-box>
+    <a-box position="-0.65 0.54 -5.25" width="0.55" height="0.18" depth="0.46" color="#252f38"></a-box>
+    <a-text id="label-projectes" value="Mostrar treballs" visible="false" position="-0.65 1.72 -5.12"
+      align="center" color="#f6c64a" width="4"></a-text>
 
-    <!-- Panell projecte 3 -->
-    <a-box position="0 1 -6" depth="0.1" height="2" width="3" color="#E91E63">
-      <a-text value="Projecte 3" align="center" position="0 1 0.06" width="3"></a-text>
-    </a-box>
+    <a-cylinder radius="0.42" height="0.9" position="4.2 0.45 -2.6" color="#242b33"
+      external-link="href: https://github.com/" hover-label="target: #label-github"
+      animation__enter="startEvents: mouseenter; property: scale; to: 1.08 1.08 1.08; dur: 180"
+      animation__leave="startEvents: mouseleave; property: scale; to: 1 1 1; dur: 320">
+      <a-text value="GitHub" align="center" position="0 0.15 0.43" rotation="0 0 0" color="#ffffff" width="2.5"></a-text>
+    </a-cylinder>
+    <a-text id="label-github" value="Obrir GitHub" visible="false" position="4.2 1.45 -2.6" align="center"
+      color="#5ed3f3" width="4"></a-text>
 
-    <!-- Llum -->
-    <a-entity light="type: ambient; color: #BBB"></a-entity>
-    <a-entity light="type: point; color: white; intensity: 1" position="0 4 4"></a-entity>
+    <a-entity gltf-model="#cotxe" position="2.15 0.18 -3.85" rotation="0 -42 0" scale="46 46 46"
+      open-window="box-projects"
+      animation__enter="startEvents: mouseenter; property: scale; to: 50 50 50; dur: 180"
+      animation__leave="startEvents: mouseleave; property: scale; to: 46 46 46; dur: 360"></a-entity>
+
+    <a-entity id="projecte1" visible="false" position="-1.65 1.45 -4.55" rotation="0 16 0"
+      external-link="href: https://mmiquel.netlify.app/exercicis/ex1/ex1">
+      <a-box width="0.86" height="0.56" depth="0.05" color="#60d394"></a-box>
+      <a-text value="My Store" align="center" position="0 0 0.04" color="#101418" width="2.5"></a-text>
+    </a-entity>
+    <a-entity id="projecte2" visible="false" position="-0.65 1.45 -4.75" rotation="0 4 0"
+      external-link="href: https://mmiquel.netlify.app/exercicis/ex2/ex2">
+      <a-box width="0.86" height="0.56" depth="0.05" color="#f6c64a"></a-box>
+      <a-text value="Music Box" align="center" position="0 0 0.04" color="#101418" width="2.5"></a-text>
+    </a-entity>
+    <a-entity id="projecte3" visible="false" position="-1.65 0.77 -4.55" rotation="0 16 0"
+      external-link="href: ../Gim-Jump/index.html">
+      <a-box width="0.86" height="0.56" depth="0.05" color="#5ed3f3"></a-box>
+      <a-text value="GIM-JUMP" align="center" position="0 0 0.04" color="#101418" width="2.5"></a-text>
+    </a-entity>
+    <a-entity id="projecte4" visible="false" position="-0.65 0.77 -4.75" rotation="0 4 0"
+      external-link="href: ../rickYMorty/index.html">
+      <a-box width="0.86" height="0.56" depth="0.05" color="#ff6b6b"></a-box>
+      <a-text value="Rick Morty" align="center" position="0 0 0.04" color="#101418" width="2.5"></a-text>
+    </a-entity>
   </a-scene>
 </body>
 
